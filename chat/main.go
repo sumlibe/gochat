@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 	"sync"
 
-	"github.com/sumlibe/trace"
+	"github.com/sumlibe/studygo/trace"
 )
 
 type templateHandler struct {

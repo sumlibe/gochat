@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"github.com/gorilla/websocket"
-	"github.com/sumlibe/trace"
+	"github.com/sumlibe/studygo/trace"
 )
 
 type room struct {
