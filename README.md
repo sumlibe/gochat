@@ -1,5 +1,7 @@
 # studygo
 
+[![CircleCI](https://circleci.com/gh/sumlibe/gochat.svg?style=svg)](https://circleci.com/gh/sumlibe/gochat)
+
 書籍「Go言語によるWebアプリケーション開発」の写経
 
 ## Ｇｏのインストール
