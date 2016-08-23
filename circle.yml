@@ -19,9 +19,8 @@ deployment:
       - go get github.com/gorilla/websocket
       - go get github.com/mitchellh/gox
       - go get github.com/tcnksm/ghr
-      - echo ${GOPATH}
-      - ls -alR `pwd`
-      - cd chat; go build main.go -o chat
+      - cd trace; go install; cd ..
+      - cd chat; go build -o chat; cd ..
     #   - gox -ldflags "-X main.BuildVersion $BUILD_VERSION -X main.BuildDate $BUILD_DATE" -output "dist/${CIRCLE_PROJECT_REPONAME}_{{.OS}}_{{.Arch}}"
     #   - ghr -t $GITHUB_TOKEN -u $CIRCLE_PROJECT_USERNAME -r $CIRCLE_PROJECT_REPONAME --replace `git describe --tags` dist/
     #   - cd ..
