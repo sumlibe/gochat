@@ -3,7 +3,7 @@ machine:
     CHECKOUT_PATH: $HOME/$CIRCLE_PROJECT_REPONAME
   pre:
     - >
-      curl -o go.tar.gz -sL https://storage.googleapis.com/golang/go1.5.2.linux-amd64.tar.gz &&
+      curl -o go.tar.gz -sL https://storage.googleapis.com/golang/go1.7.linux-amd64.tar.gz &&
       sudo rm -rf /usr/local/go &&
       sudo tar -C /usr/local -xzf go.tar.gz &&
       sudo chmod a+w /usr/local/go/src/
@@ -16,11 +16,10 @@ deployment:
   release:
     branch: master
     commands:
-      - echo "dist/${CIRCLE_PROJECT_REPONAME}_{{.OS}}_{{.Arch}}"
       - go get github.com/mitchellh/gox
-      - gox -build-toolchain
       - go get github.com/tcnksm/ghr
       - cd chat
-      - gox -ldflags "-X main.BuildVersion $BUILD_VERSION -X main.BuildDate $BUILD_DATE" -output "dist/${CIRCLE_PROJECT_REPONAME}_{{.OS}}_{{.Arch}}"
-      - ghr -t $GITHUB_TOKEN -u $CIRCLE_PROJECT_USERNAME -r $CIRCLE_PROJECT_REPONAME --replace `git describe --tags` dist/
-      - cd ..
+      - go build -o "dist${CIRCLE_PROJECT_REPONAME}_{{.OS}}_{{.Arch}}"
+    #   - gox -ldflags "-X main.BuildVersion $BUILD_VERSION -X main.BuildDate $BUILD_DATE" -output "dist/${CIRCLE_PROJECT_REPONAME}_{{.OS}}_{{.Arch}}"
+    #   - ghr -t $GITHUB_TOKEN -u $CIRCLE_PROJECT_USERNAME -r $CIRCLE_PROJECT_REPONAME --replace `git describe --tags` dist/
+    #   - cd ..
