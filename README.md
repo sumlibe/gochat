@@ -46,6 +46,19 @@ export http_proxy=http://～
 export https_proxy=$http_proxy
 ```
 
+## コンパイル
+
+```
+go build -o gochat
+```
+
+## 使い方
+
+```
+./gochat
+```
+
+アプリケーションが起動したらブラウザで[チャットルーム](http://localhost:8080)にアクセスする
 
 ## 参考
 
