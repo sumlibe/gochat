@@ -16,6 +16,7 @@ deployment:
   release:
     branch: master
     commands:
+      - go get github.com/gorilla/websocket
       - go get github.com/mitchellh/gox
       - go get github.com/tcnksm/ghr
       - cd chat; go build -o "dist/${CIRCLE_PROJECT_REPONAME}_{{.OS}}_{{.Arch}}"
