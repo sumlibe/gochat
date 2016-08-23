@@ -21,7 +21,7 @@ deployment:
       - go get github.com/tcnksm/ghr
       - echo ${GOPATH}
       - ls -alR `pwd`
-      - cd chat; go build -o chat
+      - cd chat; go build main.go -o chat
     #   - gox -ldflags "-X main.BuildVersion $BUILD_VERSION -X main.BuildDate $BUILD_DATE" -output "dist/${CIRCLE_PROJECT_REPONAME}_{{.OS}}_{{.Arch}}"
     #   - ghr -t $GITHUB_TOKEN -u $CIRCLE_PROJECT_USERNAME -r $CIRCLE_PROJECT_REPONAME --replace `git describe --tags` dist/
     #   - cd ..
