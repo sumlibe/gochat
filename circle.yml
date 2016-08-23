@@ -18,6 +18,7 @@ dependencies:
     - go get github.com/mattn/goveralls
     - go get -u github.com/alecthomas/gometalinter
     - gometalinter --install
+
 test:
   override:
     - go get -v -t ./...
@@ -25,6 +26,7 @@ test:
     # - gometalinter --deadline 30s ./...
     # - go test -race -test.v ./...
     # - goveralls -v -service=circle-ci -repotoken $COVERALLS_TOKEN ./tcpproxy
+
 deployment:
   release:
     tag: /v.*/
