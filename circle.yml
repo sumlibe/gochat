@@ -18,7 +18,9 @@ deployment:
     commands:
       - echo "dist/${CIRCLE_PROJECT_REPONAME}_{{.OS}}_{{.Arch}}"
       - go get github.com/mitchellh/gox
+      - gox -build-toolchain
       - go get github.com/tcnksm/ghr
       - cd chat
       - gox -ldflags "-X main.BuildVersion $BUILD_VERSION -X main.BuildDate $BUILD_DATE" -output "dist/${CIRCLE_PROJECT_REPONAME}_{{.OS}}_{{.Arch}}"
       - ghr -t $GITHUB_TOKEN -u $CIRCLE_PROJECT_USERNAME -r $CIRCLE_PROJECT_REPONAME --replace `git describe --tags` dist/
+      - cd ..
